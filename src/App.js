@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [amount, setAmount] = useState(null);
@@ -10,21 +10,35 @@ function App() {
   const [monthlyRepay, setMonthlyRepay] = useState(null);
   const [repayTerm, setRepayTerm] = useState(null);
 
+  // useEffect(() => {
+  //   console.log(monthlyRepay, " ", repayTerm);
+  // }, [monthlyRepay, repayTerm]);
+
   function handleSubmit(e) {
     e.preventDefault();
 
     const form = e.target;
-    const amountValue = form.mortgage_amount.value;
-    const termValue = form.term.value;
-    const rateValue = form.rate.value;
+    const amountValue = parseFloat(form.mortgage_amount.value);
+    const termValue = parseFloat(form.term.value);
+    const rateValue = parseFloat(form.rate.value) / 100;
 
     setAmount(amountValue);
     setTerm(termValue);
     setRate(rateValue);
 
+    if (type === "Repayment") {
+      const monthlyRate = rateValue / 12;
+      const monthRepay =
+        amountValue *
+        ((monthlyRate * Math.pow(1 + monthlyRate, termValue * 12)) /
+          (Math.pow(1 + monthlyRate, termValue * 12) - 1));
+
+      setMonthlyRepay(monthRepay);
+      setRepayTerm(monthRepay * (termValue * 12));
+    }
+
     setShowResult(true);
   }
-
   return (
     <div className="App">
       <Calculator handleSubmit={handleSubmit} setType={setType} type={type} />
