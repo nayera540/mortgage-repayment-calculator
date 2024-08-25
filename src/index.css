@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   font-size: 16px;
@@ -6,3 +6,233 @@
   font-family: "Plus Jakarta Sans", sans-serif;
   font-optical-sizing: auto;
 }
+
+:root {
+  --lime: hsl(61, 70%, 52%);
+  --red: hsl(4, 69%, 50%);
+  --slate-100: hsl(202, 86%, 94%);
+  --slate-300: hsl(203, 41%, 72%);
+  --slate-500: hsl(200, 26%, 54%);
+  --slate-700: hsl(200, 24%, 40%);
+  --slate-900: hsl(202, 55%, 16%);
+}
+
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  padding: 1rem;
+  background-color: var(--slate-100);
+}
+
+.App {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.calculator__container {
+  color: var(--slate-900);
+  padding: 1.5rem;
+  /* width: min-content; */
+}
+
+.results__container {
+  background-color: var(--slate-900);
+  color: #fff;
+  border-radius: 15px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 55px;
+  padding: 2.5rem;
+  width: fit-content;
+}
+
+.calculator__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+.calculator__header h1 {
+  font-size: 24px;
+}
+
+.calculator__header button {
+  background: none;
+  border: none;
+  outline: none;
+  text-decoration: underline;
+  color: var(--slate-700);
+  font-size: 14px;
+}
+
+.calculator__header button:hover,
+input:hover,
+.radio__label:hover {
+  cursor: pointer;
+}
+
+.calculator__container form label {
+  color: var(--slate-700);
+  font-size: 14px;
+}
+
+.input_wrapper {
+  position: relative;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+form {
+  width: max-content;
+}
+
+.input_wrapper input {
+  width: 100%;
+  padding-left: 3rem;
+  flex: 1;
+  z-index: 1;
+  height: 2.5rem;
+  border: 1px solid var(--slate-700);
+  border-radius: 5px;
+  background-color: transparent;
+  position: relative;
+}
+
+.input_icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  padding: 0 1rem;
+  background-color: var(--slate-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  color: var(--slate-900);
+  font-weight: 500;
+}
+
+.rate__term .input_wrapper input {
+  padding-left: 1rem;
+  padding-right: 3rem;
+}
+
+.rate__term {
+  margin-top: 20px;
+  display: flex;
+  gap: 1rem;
+}
+
+.rate__term .input_wrapper input {
+  padding-right: 3rem;
+  max-width: 11.5rem;
+}
+
+.rate__term .input_icon {
+  right: 0;
+  left: auto;
+  border-radius: 0 4px 4px 0;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid var(--lime);
+}
+
+.input_wrapper input:focus+.input_icon {
+  background-color: var(--lime);
+  border-radius: 4px 0 0 4px;
+}
+
+.rate__term .input_wrapper input:focus+.input_icon {
+  background-color: var(--lime);
+  border-radius: 0 4px 4px 0 !important;
+}
+
+.radio__btn{
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.radio__btn div{
+  width: 100%;
+  border: 1px solid var(--slate-700);
+  border-radius: 4px;
+  padding: 0.7rem 0.5rem 0.7rem 1rem;
+}
+
+.radio__btn div:hover{
+  border: 1px solid var(--lime);
+  cursor: pointer;
+}
+
+input[type='radio'] {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  outline: none;
+  border: 1px solid gray;
+}
+
+input[type='radio']:before {
+  content: '';
+  display: block;
+  width: 58%;
+  height: 58%;
+  margin: 20% auto;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked:before {
+  background: var(--lime);
+  
+}
+
+input[type="radio"]:checked {
+border-color:var(--lime);
+}
+.radio__label{
+  color: var(--slate-900) !important; 
+  font-weight: 700;
+}
+
+.radio__btn input[type="radio"] {
+  margin-right: 0.6rem;
+  
+}
+
+.calc{
+  border: none;
+  background-color: none;
+  outline: none;
+  background-color: var(--lime);
+  border-radius: 25px;
+  padding: 0.8rem 2rem;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  color: var(--slate-900);
+}
+
+.calc svg{
+  margin-right: 10px;
+}
+
+.calc:hover{
+  cursor: pointer;
+  background-color: hsl(61deg 70% 52% / 62%);
+}
+
+
+
+
+
