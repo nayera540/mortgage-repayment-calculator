@@ -30,23 +30,15 @@ body {
   grid-template-columns: 1fr 1fr;
   background-color: #fff;
   border-radius: 15px;
+  max-width: 58.5rem;
 }
 
 .calculator__container {
   color: var(--slate-900);
   padding: 1.5rem;
-  /* width: min-content; */
 }
 
-.results__container {
-  background-color: var(--slate-900);
-  color: #fff;
-  border-radius: 15px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 55px;
-  padding: 2.5rem;
-  width: fit-content;
-}
+
 
 .calculator__header {
   display: flex;
@@ -229,10 +221,48 @@ border-color:var(--lime);
 
 .calc:hover{
   cursor: pointer;
-  background-color: hsl(61deg 70% 52% / 62%);
+  background-color: hsl(61deg 70% 52% / 50%);
+}
+
+.empty__results__container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--slate-900);
+  color: #fff;
+  border-radius: 15px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 55px;
+  padding: 1.5rem;
+}
+
+.empty__results__container h1{
+  font-size: 24px;
+  margin: 1rem 0;
+}
+
+.empty__results__container p{
+  color: var(--slate-300) !important;
 }
 
 
+.results__container{
+  display: flex;
+  flex-direction:column;
+  background-color: var(--slate-900);
+  color: #fff;
+  border-radius: 15px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 55px;
+  padding: 1.5rem;
+}
+
+.Interest_Only, .Repayment{
+  background-color: hsla(61, 70%, 52%, 0.212) !important;
+  border: 1px solid var(--lime) !important;
+}
 
 
 

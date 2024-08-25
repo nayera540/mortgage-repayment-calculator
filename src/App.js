@@ -4,24 +4,39 @@ function App() {
   const [amount, setAmount] = useState(null);
   const [term, setTerm] = useState(null);
   const [rate, setRate] = useState(null);
-  const [type, setType] = useState('');
+  const [type, setType] = useState("");
   const [isClear, setIsClear] = useState(false);
-  const [calc, setIsCalc] = useState(false);
+  const [showResult, setShowResult] = useState(false);
+  const [monthlyRepay, setMonthlyRepay] = useState(null);
+  const [repayTerm, setRepayTerm] = useState(null);
 
-  
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const amountValue = form.mortgage_amount.value;
+    const termValue = form.term.value;
+    const rateValue = form.rate.value;
+
+    setAmount(amountValue);
+    setTerm(termValue);
+    setRate(rateValue);
+
+    setShowResult(true);
+  }
+
   return (
     <div className="App">
-      <Calculator />
-      <EmptyResults />
+      <Calculator handleSubmit={handleSubmit} setType={setType} type={type} />
+      {showResult ? <Results /> : <EmptyResults />}
     </div>
   );
 }
 
-function Calculator() {
-  
+function Calculator({ handleSubmit, setType, type }) {
   return (
     <div className="calculator__container">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="calculator__header">
           <h1>Mortgage Calculator</h1>
           <button className="clear__btn">Clear All</button>
@@ -73,19 +88,34 @@ function Calculator() {
           </div>
         </div>
         <div className="radio__btn">
-          <label >Mortgage Type</label>
-          <div className="repayment__input">
+          <div
+            className={`repayment__input ${
+              type === "Repayment" ? "Repayment" : ""
+            }`}
+          >
             <label className="radio__label">
-              <input type="radio" name="mortgageType" value="Repayment" />
+              <input
+                type="radio"
+                name="mortgageType"
+                value="Repayment"
+                onChange={(e) => setType(e.target.value)}
+              />
               Repayment
-              
             </label>
           </div>
-          <div className="interest__input">
+          <div
+            className={`interest__input ${
+              type === "Interest_Only" ? "Interest_Only" : ""
+            }`}
+          >
             <label className="radio__label">
-              <input type="radio" name="mortgageType" value="Interest Only" />
+              <input
+                type="radio"
+                name="mortgageType"
+                value="Interest_Only"
+                onChange={(e) => setType(e.target.value)}
+              />
               Interest Only
-              
             </label>
           </div>
         </div>
@@ -110,9 +140,13 @@ function Calculator() {
   );
 }
 
+function Results() {
+  return <div className="results__container"></div>;
+}
+
 function EmptyResults() {
   return (
-    <div className="results__container">
+    <div className="empty__results__container">
       <img
         src="../assets/images/illustration-empty.svg"
         alt="empty photo"
