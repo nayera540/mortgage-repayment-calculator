@@ -186,7 +186,7 @@ function Calculator({
         </button>
       </form>
     </div>
-  );
+  )
 }
 
 function Results({ monthlyRepay, repayTerm }) {
