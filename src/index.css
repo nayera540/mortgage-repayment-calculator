@@ -15,6 +15,7 @@
   --slate-500: hsl(200, 26%, 54%);
   --slate-700: hsl(200, 24%, 40%);
   --slate-900: hsl(202, 55%, 16%);
+  --slate-1000: #0e2431;
 }
 
 body {
@@ -209,6 +210,7 @@ border-color:var(--lime);
   background-color: var(--lime);
   border-radius: 25px;
   padding: 0.8rem 2rem;
+  margin-top: 1.5rem;
   display: flex;
   align-items: center;
   font-weight: 700;
@@ -236,6 +238,7 @@ border-color:var(--lime);
   border-top-left-radius: 0;
   border-bottom-left-radius: 55px;
   padding: 1.5rem;
+  padding-bottom: 4rem;
 }
 
 .empty__results__container h1{
@@ -257,6 +260,7 @@ border-color:var(--lime);
   border-top-left-radius: 0;
   border-bottom-left-radius: 55px;
   padding: 1.5rem;
+  padding-bottom: 2rem;
 }
 
 .Interest_Only, .Repayment{
@@ -265,4 +269,51 @@ border-color:var(--lime);
 }
 
 
+.results__container h1{
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 24px;
+}
+
+.results__container > p{
+  color: var(--slate-300) !important;
+  text-align: start;
+  margin-bottom: 1.5rem;
+}
+
+.results{
+  display: block;
+  min-width: 25rem;
+  margin: 0 auto;
+  background-color: var(--slate-1000);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-top: 4px solid var(--lime);
+}
+
+.month__repay p, .repay__term p {
+  color: var(--slate-300);
+  margin-bottom: 0.5rem;
+}
+
+.repay{
+  color: var(--lime) !important;
+  font-size: 50px;
+  font-weight: bold;
+  padding-bottom: 1rem;
+}
+
+.month__repay{
+  border-bottom: 1px solid var(--slate-700);
+}
+
+.repay__term{
+  margin-top: 1.8rem;
+}
+
+.term{
+  color: #fff !important;
+  font-size: 20px;
+  font-weight: bold;
+}
 

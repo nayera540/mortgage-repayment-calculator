@@ -10,10 +10,6 @@ function App() {
   const [monthlyRepay, setMonthlyRepay] = useState(null);
   const [repayTerm, setRepayTerm] = useState(null);
 
-  // useEffect(() => {
-  //   console.log(monthlyRepay, " ", repayTerm);
-  // }, [monthlyRepay, repayTerm]);
-
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -35,6 +31,10 @@ function App() {
 
       setMonthlyRepay(monthRepay);
       setRepayTerm(monthRepay * (termValue * 12));
+    } else if (type === "Interest_Only") {
+      const monthRepay = amountValue * (rateValue / 12);
+      setMonthlyRepay(monthRepay);
+      setRepayTerm(monthRepay * termValue * 12 + amountValue);
     }
 
     setShowResult(true);
@@ -42,7 +42,7 @@ function App() {
   return (
     <div className="App">
       <Calculator handleSubmit={handleSubmit} setType={setType} type={type} />
-      {showResult ? <Results /> : <EmptyResults />}
+      {showResult ? <Results monthlyRepay={monthlyRepay} repayTerm={repayTerm} /> : <EmptyResults />}
     </div>
   );
 }
@@ -102,6 +102,7 @@ function Calculator({ handleSubmit, setType, type }) {
           </div>
         </div>
         <div className="radio__btn">
+          <label>Mortgage Type</label>
           <div
             className={`repayment__input ${
               type === "Repayment" ? "Repayment" : ""
@@ -154,8 +155,27 @@ function Calculator({ handleSubmit, setType, type }) {
   );
 }
 
-function Results() {
-  return <div className="results__container"></div>;
+function Results({monthlyRepay, repayTerm}) {
+  return (
+    <div className="results__container">
+      <h1>Your results</h1>
+      <p>
+        Your results are shown below based on the information you provided. To
+        adjust the results, edit the form and click “calculate repayments”
+        again.
+      </p>
+      <div className="results">
+        <div className="month__repay">
+          <p>Your monthly repayments</p>
+          <p className="repay">£{monthlyRepay.toLocaleString()}</p>
+        </div>
+        <div className="repay__term">
+          <p>Total you'll repay over the term</p>
+          <p className="term">£{repayTerm.toLocaleString()}</p>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 function EmptyResults() {
