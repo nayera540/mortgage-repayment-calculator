@@ -1,14 +1,32 @@
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 
 function App() {
   const [amount, setAmount] = useState(null);
   const [term, setTerm] = useState(null);
   const [rate, setRate] = useState(null);
   const [type, setType] = useState("");
-  const [isClear, setIsClear] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const [monthlyRepay, setMonthlyRepay] = useState(null);
   const [repayTerm, setRepayTerm] = useState(null);
+
+  const formRef = useRef(null); // Add ref to the form
+
+  function handleClearAll() {
+    // Reset state values
+    setAmount(null);
+    setTerm(null);
+    setRate(null);
+    setType("");
+    setMonthlyRepay(null);
+    setRepayTerm(null);
+    setShowResult(false);
+
+    // Reset the form inputs
+    if (formRef.current) {
+      formRef.current.reset();
+    }
+  }
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -41,19 +59,36 @@ function App() {
   }
   return (
     <div className="App">
-      <Calculator handleSubmit={handleSubmit} setType={setType} type={type} />
-      {showResult ? <Results monthlyRepay={monthlyRepay} repayTerm={repayTerm} /> : <EmptyResults />}
+      <Calculator
+        handleSubmit={handleSubmit}
+        handleClearAll={handleClearAll}
+        setType={setType}
+        type={type}
+        formRef={formRef}
+      />
+      {showResult ? (
+        <Results monthlyRepay={monthlyRepay} repayTerm={repayTerm} />
+      ) : (
+        <EmptyResults />
+      )}
     </div>
   );
 }
 
-function Calculator({ handleSubmit, setType, type }) {
+function Calculator({
+  handleSubmit,
+  setType,
+  type,
+  amount,
+  formRef,
+  handleClearAll,
+}) {
   return (
     <div className="calculator__container">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} ref={formRef}>
         <div className="calculator__header">
           <h1>Mortgage Calculator</h1>
-          <button className="clear__btn">Clear All</button>
+          <button className="clear__btn" onClick={handleClearAll}>Clear All</button>
         </div>
 
         <label className="labels" for="amount">
@@ -63,9 +98,10 @@ function Calculator({ handleSubmit, setType, type }) {
         <div class="input_wrapper">
           <input
             type="text"
-            required
+            value={amount}
             name="mortgage_amount"
             autoComplete="false"
+            
           />
           <span class="input_icon">£</span>
         </div>
@@ -78,7 +114,6 @@ function Calculator({ handleSubmit, setType, type }) {
               <input
                 type="text"
                 id="term"
-                required
                 name="term"
                 autoComplete="false"
               />
@@ -93,7 +128,6 @@ function Calculator({ handleSubmit, setType, type }) {
               <input
                 type="text"
                 id="rate"
-                required
                 name="rate"
                 autoComplete="false"
               />
@@ -155,7 +189,7 @@ function Calculator({ handleSubmit, setType, type }) {
   );
 }
 
-function Results({monthlyRepay, repayTerm}) {
+function Results({ monthlyRepay, repayTerm }) {
   return (
     <div className="results__container">
       <h1>Your results</h1>
