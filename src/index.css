@@ -1,319 +1,321 @@
 * {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  box-sizing: border-box;
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-optical-sizing: auto;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
 }
 
 :root {
-  --lime: hsl(61, 70%, 52%);
-  --red: hsl(4, 69%, 50%);
-  --slate-100: hsl(202, 86%, 94%);
-  --slate-300: hsl(203, 41%, 72%);
-  --slate-500: hsl(200, 26%, 54%);
-  --slate-700: hsl(200, 24%, 40%);
-  --slate-900: hsl(202, 55%, 16%);
-  --slate-1000: #0e2431;
+    --lime: hsl(61, 70%, 52%);
+    --red: hsl(4, 69%, 50%);
+    --slate-100: hsl(202, 86%, 94%);
+    --slate-300: hsl(203, 41%, 72%);
+    --slate-500: hsl(200, 26%, 54%);
+    --slate-700: hsl(200, 24%, 40%);
+    --slate-900: hsl(202, 55%, 16%);
+    --slate-1000: #0e2431;
 }
 
 body {
-  display: grid;
-  place-content: center;
-  min-height: 100vh;
-  padding: 1rem;
-  background-color: var(--slate-100);
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+    background-color: var(--slate-100);
 }
 
 .App {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background-color: #fff;
-  border-radius: 15px;
-  max-width: 58.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #fff;
+    border-radius: 15px;
+    max-width: 58.5rem;
 }
 
 .calculator__container {
-  color: var(--slate-900);
-  padding: 1.5rem;
+    color: var(--slate-900);
+    padding: 1.5rem;
 }
 
 
 
 .calculator__header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1.4rem;
-  margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.4rem;
+    margin-top: 0.5rem;
 }
 
 .calculator__header h1 {
-  font-size: 24px;
+    font-size: 24px;
 }
 
 .calculator__header button {
-  background: none;
-  border: none;
-  outline: none;
-  text-decoration: underline;
-  color: var(--slate-700);
-  font-size: 14px;
+    background: none;
+    border: none;
+    outline: none;
+    text-decoration: underline;
+    color: var(--slate-700);
+    font-size: 14px;
 }
 
 .calculator__header button:hover,
 input:hover,
 .radio__label:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .calculator__container form label {
-  color: var(--slate-700);
-  font-size: 14px;
+    color: var(--slate-700);
+    font-size: 14px;
 }
 
 .input_wrapper {
-  position: relative;
-  display: block;
-  margin-top: 0.5rem;
+    position: relative;
+    display: block;
+    margin-top: 0.5rem;
 }
 
 form {
-  width: max-content;
+    width: max-content;
 }
 
 .input_wrapper input {
-  width: 100%;
-  padding-left: 3rem;
-  flex: 1;
-  z-index: 1;
-  height: 2.5rem;
-  border: 1px solid var(--slate-700);
-  border-radius: 5px;
-  background-color: transparent;
-  position: relative;
+    width: 100%;
+    padding-left: 3rem;
+    flex: 1;
+    z-index: 1;
+    height: 2.5rem;
+    border: 1px solid var(--slate-700);
+    border-radius: 5px;
+    background-color: transparent;
+    position: relative;
 }
 
 .input_icon {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 100%;
-  padding: 0 1rem;
-  background-color: var(--slate-100);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  color: var(--slate-900);
-  font-weight: 500;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    padding: 0 1rem;
+    background-color: var(--slate-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    color: var(--slate-900);
+    font-weight: 500;
 }
 
 .rate__term .input_wrapper input {
-  padding-left: 1rem;
-  padding-right: 3rem;
+    padding-left: 1rem;
+    padding-right: 3rem;
 }
 
 .rate__term {
-  margin-top: 20px;
-  display: flex;
-  gap: 1rem;
+    margin-top: 20px;
+    display: flex;
+    gap: 1rem;
 }
 
 .rate__term .input_wrapper input {
-  padding-right: 3rem;
-  max-width: 11.5rem;
+    padding-right: 3rem;
+    max-width: 11.5rem;
 }
 
 .rate__term .input_icon {
-  right: 0;
-  left: auto;
-  border-radius: 0 4px 4px 0;
+    right: 0;
+    left: auto;
+    border-radius: 0 4px 4px 0;
 }
 
 input:focus {
-  outline: none;
-  border: 1px solid var(--lime);
+    outline: none;
+    border: 1px solid var(--lime);
 }
 
 .input_wrapper input:focus+.input_icon {
-  background-color: var(--lime);
-  border-radius: 4px 0 0 4px;
+    background-color: var(--lime);
+    border-radius: 4px 0 0 4px;
 }
 
 .rate__term .input_wrapper input:focus+.input_icon {
-  background-color: var(--lime);
-  border-radius: 0 4px 4px 0 !important;
+    background-color: var(--lime);
+    border-radius: 0 4px 4px 0 !important;
 }
 
-.radio__btn{
-  gap: 0.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  
+.radio__btn {
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+
 }
 
-.radio__btn div{
-  width: 100%;
-  border: 1px solid var(--slate-700);
-  border-radius: 4px;
-  padding: 0.7rem 0.5rem 0.7rem 1rem;
+.radio__btn div {
+    width: 100%;
+    border: 1px solid var(--slate-700);
+    border-radius: 4px;
+    padding: 0.7rem 0.5rem 0.7rem 1rem;
 }
 
-.radio__btn div:hover{
-  border: 1px solid var(--lime);
-  cursor: pointer;
+.radio__btn div:hover {
+    border: 1px solid var(--lime);
+    cursor: pointer;
 }
 
 input[type='radio'] {
-  -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  outline: none;
-  border: 1px solid gray;
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    outline: none;
+    border: 1px solid gray;
 }
 
 input[type='radio']:before {
-  content: '';
-  display: block;
-  width: 58%;
-  height: 58%;
-  margin: 20% auto;
-  border-radius: 50%;
+    content: '';
+    display: block;
+    width: 58%;
+    height: 58%;
+    margin: 20% auto;
+    border-radius: 50%;
 }
 
 input[type="radio"]:checked:before {
-  background: var(--lime);
-  
+    background: var(--lime);
+
 }
 
 input[type="radio"]:checked {
-border-color:var(--lime);
+    border-color: var(--lime);
 }
-.radio__label{
-  color: var(--slate-900) !important; 
-  font-weight: 700;
+
+.radio__label {
+    color: var(--slate-900) !important;
+    font-weight: 700;
 }
 
 .radio__btn input[type="radio"] {
-  margin-right: 0.6rem;
-  
+    margin-right: 0.6rem;
+
 }
 
-.calc{
-  border: none;
-  background-color: none;
-  outline: none;
-  background-color: var(--lime);
-  border-radius: 25px;
-  padding: 0.8rem 2rem;
-  margin-top: 1.5rem;
-  display: flex;
-  align-items: center;
-  font-weight: 700;
-  color: var(--slate-900);
+.calc {
+    border: none;
+    background-color: none;
+    outline: none;
+    background-color: var(--lime);
+    border-radius: 25px;
+    padding: 0.8rem 2rem;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    color: var(--slate-900);
 }
 
-.calc svg{
-  margin-right: 10px;
+.calc svg {
+    margin-right: 10px;
 }
 
-.calc:hover{
-  cursor: pointer;
-  background-color: hsl(61deg 70% 52% / 50%);
+.calc:hover {
+    cursor: pointer;
+    background-color: hsl(61deg 70% 52% / 50%);
 }
 
-.empty__results__container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: var(--slate-900);
-  color: #fff;
-  border-radius: 15px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 55px;
-  padding: 1.5rem;
-  padding-bottom: 4rem;
+.empty__results__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--slate-900);
+    color: #fff;
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 55px;
+    padding: 1.5rem;
+    padding-bottom: 4rem;
 }
 
-.empty__results__container h1{
-  font-size: 24px;
-  margin: 1rem 0;
+.empty__results__container h1 {
+    font-size: 24px;
+    margin: 1rem 0;
 }
 
-.empty__results__container p{
-  color: var(--slate-300) !important;
-}
-
-
-.results__container{
-  display: flex;
-  flex-direction:column;
-  background-color: var(--slate-900);
-  color: #fff;
-  border-radius: 15px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 55px;
-  padding: 1.5rem;
-  padding-bottom: 2rem;
-}
-
-.Interest_Only, .Repayment{
-  background-color: hsla(61, 70%, 52%, 0.212) !important;
-  border: 1px solid var(--lime) !important;
+.empty__results__container p {
+    color: var(--slate-300) !important;
 }
 
 
-.results__container h1{
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  font-size: 24px;
+.results__container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--slate-900);
+    color: #fff;
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 55px;
+    padding: 1.5rem;
+    padding-bottom: 2rem;
 }
 
-.results__container > p{
-  color: var(--slate-300) !important;
-  text-align: start;
-  margin-bottom: 1.5rem;
+.Interest_Only,
+.Repayment {
+    background-color: hsla(61, 70%, 52%, 0.212) !important;
+    border: 1px solid var(--lime) !important;
 }
 
-.results{
-  display: block;
-  min-width: 25rem;
-  margin: 0 auto;
-  background-color: var(--slate-1000);
-  padding: 1.5rem;
-  border-radius: 8px;
-  border-top: 4px solid var(--lime);
+
+.results__container h1 {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 24px;
 }
 
-.month__repay p, .repay__term p {
-  color: var(--slate-300);
-  margin-bottom: 0.5rem;
+.results__container>p {
+    color: var(--slate-300) !important;
+    text-align: start;
+    margin-bottom: 1.5rem;
 }
 
-.repay{
-  color: var(--lime) !important;
-  font-size: 50px;
-  font-weight: bold;
-  padding-bottom: 1rem;
+.results {
+    display: block;
+    min-width: 25rem;
+    margin: 0 auto;
+    background-color: var(--slate-1000);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-top: 4px solid var(--lime);
 }
 
-.month__repay{
-  border-bottom: 1px solid var(--slate-700);
+.month__repay p,
+.repay__term p {
+    color: var(--slate-300);
+    margin-bottom: 0.5rem;
 }
 
-.repay__term{
-  margin-top: 1.8rem;
+.repay {
+    color: var(--lime) !important;
+    font-size: 50px;
+    font-weight: bold;
+    padding-bottom: 1rem;
 }
 
-.term{
-  color: #fff !important;
-  font-size: 20px;
-  font-weight: bold;
+.month__repay {
+    border-bottom: 1px solid var(--slate-700);
 }
 
+.repay__term {
+    margin-top: 1.8rem;
+}
+
+.term {
+    color: #fff !important;
+    font-size: 20px;
+    font-weight: bold;
+}

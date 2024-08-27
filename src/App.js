@@ -11,22 +11,23 @@ function App() {
 
   const formRef = useRef(null); // Add ref to the form
 
-  function handleClearAll() {
+  function handleClearAll(e) {
+    e.preventDefault();
     // Reset state values
+    setShowResult(false);
     setAmount(null);
     setTerm(null);
     setRate(null);
     setType("");
     setMonthlyRepay(null);
     setRepayTerm(null);
-    setShowResult(false);
-
+        
     // Reset the form inputs
     if (formRef.current) {
       formRef.current.reset();
     }
+    
   }
-
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -88,7 +89,9 @@ function Calculator({
       <form onSubmit={handleSubmit} ref={formRef}>
         <div className="calculator__header">
           <h1>Mortgage Calculator</h1>
-          <button className="clear__btn" onClick={handleClearAll}>Clear All</button>
+          <button className="clear__btn" onClick={handleClearAll}>
+            Clear All
+          </button>
         </div>
 
         <label className="labels" for="amount">
@@ -101,7 +104,6 @@ function Calculator({
             value={amount}
             name="mortgage_amount"
             autoComplete="false"
-            
           />
           <span class="input_icon">£</span>
         </div>
@@ -111,12 +113,7 @@ function Calculator({
               Mortgage Term
             </label>
             <div class="input_wrapper">
-              <input
-                type="text"
-                id="term"
-                name="term"
-                autoComplete="false"
-              />
+              <input type="text" id="term" name="term" autoComplete="false" />
               <span class="input_icon">years</span>
             </div>
           </div>
@@ -125,12 +122,7 @@ function Calculator({
               Interest Rate
             </label>
             <div class="input_wrapper">
-              <input
-                type="text"
-                id="rate"
-                name="rate"
-                autoComplete="false"
-              />
+              <input type="text" id="rate" name="rate" autoComplete="false" />
               <span class="input_icon">%</span>
             </div>
           </div>
@@ -186,7 +178,7 @@ function Calculator({
         </button>
       </form>
     </div>
-  )
+  );
 }
 
 function Results({ monthlyRepay, repayTerm }) {
@@ -201,11 +193,11 @@ function Results({ monthlyRepay, repayTerm }) {
       <div className="results">
         <div className="month__repay">
           <p>Your monthly repayments</p>
-          <p className="repay">£{monthlyRepay.toLocaleString()}</p>
+          <p className="repay">£{monthlyRepay !== null ? monthlyRepay.toLocaleString() : ""}</p>
         </div>
         <div className="repay__term">
           <p>Total you'll repay over the term</p>
-          <p className="term">£{repayTerm.toLocaleString()}</p>
+          <p className="term">£{repayTerm !== null ? repayTerm.toLocaleString() : ""}</p>
         </div>
       </div>
     </div>
