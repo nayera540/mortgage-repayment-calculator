@@ -334,3 +334,15 @@ input[type="radio"]:checked {
 .empty_field input{
     border: 1px solid var(--red) !important; /* Check if this affects border-radius */
 }
+
+@media (max-width: 768px){
+    body{
+      padding: 0;
+      margin: 2rem;
+    }
+  
+    .App{
+      grid-template-columns: 1fr;
+      max-width: 30rem;
+    }
+  }
