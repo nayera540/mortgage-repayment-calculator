@@ -149,7 +149,7 @@ input:focus {
 .radio__btn {
     gap: 0.5rem;
     margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    /* margin-bottom: rem; */
     display: flex;
     flex-direction: column;
 
@@ -211,7 +211,7 @@ input[type="radio"]:checked {
     background-color: var(--lime);
     border-radius: 25px;
     padding: 0.8rem 2rem;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     display: flex;
     align-items: center;
     font-weight: 700;
@@ -318,4 +318,19 @@ input[type="radio"]:checked {
     color: #fff !important;
     font-size: 20px;
     font-weight: bold;
+}
+
+.empty{
+    font-size: 12px;
+    color: var(--red);
+}
+
+.empty_input{
+    background-color: var(--red) !important;
+    color: #fff;
+    border-radius: 4px 0 0 4px;
+}
+
+.empty_field input{
+    border: 1px solid var(--red) !important; /* Check if this affects border-radius */
 }
