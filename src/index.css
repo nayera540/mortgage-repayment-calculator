@@ -320,29 +320,41 @@ input[type="radio"]:checked {
     font-weight: bold;
 }
 
-.empty{
+.empty {
     font-size: 12px;
     color: var(--red);
 }
 
-.empty_input{
+.empty_input {
     background-color: var(--red) !important;
     color: #fff;
     border-radius: 4px 0 0 4px;
 }
 
-.empty_field input{
-    border: 1px solid var(--red) !important; /* Check if this affects border-radius */
+.empty_field input {
+    border: 1px solid var(--red) !important;
+    /* Check if this affects border-radius */
 }
 
-@media (max-width: 768px){
-    body{
-      padding: 0;
-      margin: 2rem;
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+        margin: 2rem;
     }
-  
-    .App{
-      grid-template-columns: 1fr;
-      max-width: 30rem;
+
+    .App {
+        grid-template-columns: 1fr;
+        max-width: 20.5rem;
     }
-  }
+    .rate__term{
+        flex-direction: column;
+    }
+    .rate__term .input_wrapper input {
+        max-width: 100%;
+    }
+    .calculator__header{
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+    }
+}
